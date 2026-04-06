@@ -156,7 +156,6 @@ class CausalNeuronSelector:
             return arr / np.sqrt(variance + eps)
 
         for l in tqdm(L_eff, desc="Analyzing Effective Layers"):
-            # 1. 提取投影方向向量 v [hidden_size]
             v_dir = anchors[l].to(self.device).squeeze()
             
             w_down = self.model.language_model.layers[l].mlp.down_proj.weight.data
